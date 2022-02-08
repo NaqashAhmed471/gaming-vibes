@@ -6,7 +6,7 @@ import logo from "../public/rupee.png";
 import banner from "../public/banner.png";
 
 const Navbar = () => {
-  const { user, login } = useContext(AuthContext);
+  const { user, login, logout } = useContext(AuthContext);
   console.log(user);
 
   return (
@@ -27,6 +27,9 @@ const Navbar = () => {
           </li>
           <li onClick={login} className="btn">
             Login/Signup
+          </li>
+          <li onClick={logout} className="btn">
+            Log out
           </li>
         </ul>
       </nav>
