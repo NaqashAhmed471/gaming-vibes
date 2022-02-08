@@ -1,11 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useContext } from "react";
+import AuthContext from "../stores/authContext";
+import logo from "../public/rupee.png";
+import banner from "../public/banner.png";
 
 const Navbar = () => {
+  const { user, login } = useContext(AuthContext);
+  console.log(user);
+
   return (
     <div className="container">
       <nav>
-        <Image src="/rupee.png" width={50} height={48} alt="logo" />
+        <Image src={logo} width={50} height={48} alt="logo" />
         <h1>Gaming Vibes</h1>
         <ul>
           <li>
@@ -18,10 +25,13 @@ const Navbar = () => {
               <a>Guides</a>
             </Link>
           </li>
+          <li onClick={login} className="btn">
+            Login/Signup
+          </li>
         </ul>
       </nav>
       <div className="banner">
-        <Image src="/banner.png" width={966} height={276} alt="banner" />
+        <Image src={banner} width={966} height={276} alt="banner" />
       </div>
     </div>
   );
